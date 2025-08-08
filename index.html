@@ -264,6 +264,20 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closePopup();
+      if (
+      e.key === "F12" || // DevTools
+      (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
+      (e.ctrlKey && e.key === 'U') || // Ctrl+U
+      (e.ctrlKey && e.key === 'S') || // Ctrl+S
+      (e.ctrlKey && e.key === 'P') || // Ctrl+P
+      (e.ctrlKey && e.key === 'C') || // Ctrl+C
+      (e.ctrlKey && e.key === 'A') // Ctrl+A
+	  ) {
+      e.preventDefault();
+		}
+    });
+    document.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
     });
   </script>
 </body>
