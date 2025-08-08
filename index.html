@@ -1,18 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>R AriYansh Technologies Pvt Ltd</title>
-  <meta name="description"
-    content="R AriYansh Technologies offers IT Consulting, Development, DevOps, Data Engineering, and Scalable Cloud Solutions.">
-  <meta name="keywords"
-    content="IT Consulting, Cloud, DevOps, Data Engineering, Software Development, India, R AriYansh">
-  <meta name="author" content="R AriYansh Technologies Pvt Ltd">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/732/732221.png" />
+  <meta
+    content="R AriYansh Technologies offers IT Consulting, Development, DevOps, Data Engineering, and Scalable Cloud Solutions."
+    name="description" />
+  <meta content="IT Consulting, Cloud, DevOps, Data Engineering, Software Development, India, R AriYansh"
+    name="keywords" />
+  <meta content="R AriYansh Technologies Pvt Ltd" name="author" />
+  <link href="https://cdn-icons-png.flaticon.com/512/732/732221.png" rel="icon" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
@@ -39,24 +41,35 @@
 </head>
 
 <body class="text-gray-800 font-sans">
-
   <!-- Header -->
-  <header class="bg-blue-900 text-white shadow-md sticky top-0 z-50">
-    <div class="w-full px-0 py-4 flex justify-between items-center">
-      <a href="#top" class="flex items-center gap-3 pl-4 group focus:outline-none">
+  <header class="bg-blue-900 text-white shadow-md sticky top-0 z-50 w-full">
+    <div class="w-full py-4 flex justify-between items-center">
+      <a href="#top" class="flex items-center gap-3 group focus:outline-none pl-4">
         <img src="R.png" alt="Logo" class="h-12 w-12 object-contain transition-transform group-hover:scale-105" />
         <div class="leading-tight">
           <h1 class="text-2xl font-bold group-hover:text-purple-100">R AriYansh Technologies</h1>
           <p class="text-sm text-purple-200 group-hover:text-white">Empower at Scale with Technology</p>
         </div>
       </a>
-      <nav class="space-x-6 text-sm font-medium animate__animated animate__fadeInRight pr-4">
+      <button id="menuBtn" class="md:hidden text-white focus:outline-none pr-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <nav id="menu"
+        class="hidden absolute top-16 left-0 w-full bg-blue-900 flex-col text-center space-y-2 py-4 text-sm font-medium md:static md:flex md:flex-row md:space-y-0 md:space-x-6 md:w-auto md:py-0 pr-4">
         <a href="#about" class="hover:underline">About</a>
         <a href="#services" class="hover:underline">Services</a>
         <a href="#offerings" class="hover:underline">Offerings</a>
         <a href="#contact" class="hover:underline">Contact</a>
       </nav>
     </div>
+    <script>
+      document.getElementById('menuBtn').addEventListener('click', function () {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+      });
+    </script>
   </header>
 
   <!-- Hero -->
@@ -68,14 +81,13 @@
       </h2>
       <p class="text-lg text-gray-200">Empowering businesses with cutting-edge technology, smart engineering, and
         scalable digital solutions.</p>
-      <a href="#contact"
-        class="mt-8 inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition">Contact
+      <a class="mt-8 inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
+        href="#contact">Contact
         Us</a>
     </div>
   </section>
-
   <!-- About -->
-  <section id="about" class="py-20 bg-white">
+  <section class="py-20 bg-white" id="about">
     <div class="max-w-6xl mx-auto px-6">
       <h3 class="text-3xl font-semibold mb-6 text-center">About Us</h3>
       <p class="text-lg text-gray-700 text-center max-w-4xl mx-auto">
@@ -86,134 +98,133 @@
       <p class="text-center text-sm mt-4 text-gray-600">Based in Bangalore, India | 11–50 employees | Privately held</p>
     </div>
   </section>
-
   <!-- Services -->
-  <section id="services" class="py-20 bg-gray-100">
+  <section class="py-20 bg-gray-100" id="services">
     <div class="max-w-6xl mx-auto px-6">
       <h3 class="text-3xl font-semibold mb-12 text-center">Our Services</h3>
       <div class="grid md:grid-cols-3 gap-8">
         <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">Backend & Full Stack Development</h4>
+          <h4 class="text-xl font-bold mb-2">Backend &amp; Full Stack Development</h4>
           <p>Robust, scalable applications built with modern frameworks and cloud-ready architecture.</p>
         </div>
         <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">AWS Cloud & DevOps</h4>
+          <h4 class="text-xl font-bold mb-2">AWS Cloud &amp; DevOps</h4>
           <p>CI/CD pipelines, Kubernetes, and secure infrastructure built on AWS and GCP.</p>
         </div>
         <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">Data Engineering & Automation</h4>
+          <h4 class="text-xl font-bold mb-2">Data Engineering &amp; Automation</h4>
           <p>Analytics, pipeline optimization, and smart automation for performance and insights.</p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Offerings -->
-  <section id="offerings" class="py-20 bg-white">
+  <section class="py-20 bg-white" id="offerings">
     <div class="max-w-7xl mx-auto px-6">
       <h3 class="text-3xl font-semibold mb-10 text-center">Our Offerings</h3>
+      <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-10">
+        Helping startups, enterprises, and scale-ups achieve digital transformation with cutting-edge technology.
+        We specialize in delivering solutions across <strong>FinTech, Healthcare, Retail, SaaS</strong>, and
+        <strong>Logistics</strong> domains.
+      </p>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">IT Consulting & Development</h4>
-          <p>Agile development and strategic consulting tailored to your business goals.</p>
+          <h4 class="font-bold mb-2">IT Consulting &amp; Agile Development</h4>
+          <p>Strategic guidance and agile development tailored to your product vision, helping you launch faster and
+            smarter.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Full Stack Engineering</h4>
-          <p>From backend to frontend, we cover the full product lifecycle.</p>
+          <h4 class="font-bold mb-2">Full Stack Product Engineering</h4>
+          <p>From intuitive frontends to robust backends — we develop scalable platforms across the full lifecycle.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Cloud Solutions</h4>
-          <p>Scalable cloud architecture on AWS, GCP, and Azure.</p>
+          <h4 class="font-bold mb-2">Cloud &amp; DevOps Solutions</h4>
+          <p>Modern infrastructure with AWS, GCP &amp; Azure, CI/CD automation, containerization, and performance
+            monitoring.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Data Engineering</h4>
-          <p>Modern pipelines, ETL, and real-time analytics.</p>
+          <h4 class="font-bold mb-2">Intelligent Automation</h4>
+          <p>Automate operations using scripts, workflow engines, and low-code tools to boost business productivity.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Process Automation</h4>
-          <p>Automate repetitive tasks to improve efficiency.</p>
+          <h4 class="font-bold mb-2">Data Engineering &amp; Analytics</h4>
+          <p>Design and deploy modern ETL pipelines, data lakes, and real-time dashboards for actionable insights.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Android & Mobile Apps</h4>
-          <p>Mobile-first digital experiences across platforms.</p>
+          <h4 class="font-bold mb-2">Mobile App Development</h4>
+          <p>Custom mobile solutions for Android and cross-platform apps built for performance and seamless UX.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">UI/UX & Web Design</h4>
-          <p>Clean, responsive designs that elevate user experience.</p>
+          <h4 class="font-bold mb-2">UI/UX &amp; Frontend Design</h4>
+          <p>Clean, responsive designs that focus on usability and user satisfaction across devices.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Product Innovation</h4>
-          <p>Turn ideas into MVPs with rapid prototyping.</p>
+          <h4 class="font-bold mb-2">Product Prototyping &amp; MVPs</h4>
+          <p>Validate your ideas quickly with lean prototypes and MVP development for faster market feedback.</p>
         </div>
         <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Tech Support</h4>
-          <p>Ongoing monitoring, support, and scaling assistance.</p>
+          <h4 class="font-bold mb-2">Dedicated Tech Support</h4>
+          <p>Ongoing monitoring, issue resolution, and scaling assistance to ensure business continuity.</p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white">
+  <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white" id="contact">
     <div class="max-w-6xl mx-auto px-6 text-center">
       <h3 class="text-4xl font-bold mb-4">Let’s Connect</h3>
       <p class="text-lg mb-10">Explore who we are, what we do, and how we can collaborate for innovation and growth.</p>
-
       <!-- Links -->
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-10 text-sm text-blue-100 text-center">
-        <div
-          onclick="showPopup('Get in touch', `<p>📞 <strong>Contact our business team</strong></p><p>📧 <strong>Email:</strong> <a href='mailto:ar.techconsulting.in@gmail.com' class='underline text-blue-700 hover:text-blue-900'>ar.techconsulting.in@gmail.com</a></p><p>📱 <strong>Phone:</strong> +91-9938636246</p><p class='mt-2'>Have a project or collaboration idea? Let’s talk.</p>`)"
-          class="hover:underline cursor-pointer inline-block">Get in touch</div>
-        <div
-          onclick="showPopup('Explore careers', `<strong>🚀 We’re hiring!</strong><br><br>Current openings:<ul style='padding-left: 1rem; list-style-type: disc;'><li>Java Backend Developer (AWS, Kafka)</li><li>Java Full Stack Developer (Angular/React)</li><li>Python Backend Developer</li><li>Data Engineer (Azure, AWS, GCP)</li><li>DevOps Engineer</li><li>QA Automation Engineer</li></ul>`)"
-          class="hover:underline cursor-pointer inline-block">Explore careers</div>
-        <div
-          onclick="showPopup('View locations', `<p>📍 Our Locations</p><p>Headquartered in Bangalore, India.<br>We operate with a remote-first model across the globe.</p>`)"
-          class="hover:underline cursor-pointer inline-block">View locations</div>
-        <div
-          onclick="showPopup('Learn about us', `<p>💡 Learn About Us</p><p>Discover our journey, mission, and values that drive our innovation and client success.</p>`)"
-          class="hover:underline cursor-pointer inline-block">Learn about us</div>
-        <div
-          onclick="showPopup('Who we are', `<p>🌐 Who We Are</p><p>R AriYansh Technologies is a fast-growing IT services firm. We believe in empowering teams, enabling agility, and driving scalable digital transformation.</p>`)"
-          class="hover:underline cursor-pointer inline-block">Who we are</div>
-        <div
-          onclick="showPopup('What we do', `<p>🛠️ What We Do</p><p>We deliver scalable tech solutions through expert consulting and development support. Our services span backend and full-stack development, cloud consulting, data engineering, and automation — tailored to your business needs. With flexible engagement models and industry-proven talent, we prioritize client success and long-term partnerships.</p>`)"
-          class="hover:underline cursor-pointer inline-block">What we do</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('Get in touch', `&lt;p&gt;📞 &lt;strong&gt;Contact our business team&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;📧 &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href='mailto:ar.techconsulting.in@gmail.com' class='underline text-blue-700 hover:text-blue-900'&gt;ar.techconsulting.in@gmail.com&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📱 &lt;strong&gt;Phone:&lt;/strong&gt; +91-9938636246&lt;/p&gt;&lt;p class='mt-2'&gt;Have a project or collaboration idea? Let’s talk.&lt;/p&gt;`)">
+          Get in touch</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('Explore careers', `&lt;strong&gt;🚀 We’re hiring!&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Current openings:&lt;ul style='padding-left: 1rem; list-style-type: disc;'&gt;&lt;li&gt;Java Backend Developer (AWS, Kafka)&lt;/li&gt;&lt;li&gt;Java Full Stack Developer (Angular/React)&lt;/li&gt;&lt;li&gt;Python Backend Developer&lt;/li&gt;&lt;li&gt;Data Engineer (Azure, AWS, GCP)&lt;/li&gt;&lt;li&gt;DevOps Engineer&lt;/li&gt;&lt;li&gt;QA Automation Engineer&lt;/li&gt;&lt;/ul&gt;`)">
+          Explore careers</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('View locations', `&lt;p&gt;📍 Our Locations&lt;/p&gt;&lt;p&gt;Headquartered in Bangalore, India.&lt;br&gt;We operate with a remote-first model across the globe.&lt;/p&gt;`)">
+          View locations</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('Learn about us', `&lt;p&gt;💡 Learn About Us&lt;/p&gt;&lt;p&gt;Discover our journey, mission, and values that drive our innovation and client success.&lt;/p&gt;`)">
+          Learn about us</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('Who we are', `&lt;p&gt;🌐 Who We Are&lt;/p&gt;&lt;p&gt;R AriYansh Technologies is a fast-growing IT services firm. We believe in empowering teams, enabling agility, and driving scalable digital transformation.&lt;/p&gt;`)">
+          Who we are</div>
+        <div class="hover:underline cursor-pointer inline-block"
+          onclick="showPopup('What we do', `&lt;p&gt;🛠️ What We Do&lt;/p&gt;&lt;p&gt;We deliver scalable tech solutions through expert consulting and development support. Our services span backend and full-stack development, cloud consulting, data engineering, and automation — tailored to your business needs. With flexible engagement models and industry-proven talent, we prioritize client success and long-term partnerships.&lt;/p&gt;`)">
+          What we do</div>
       </div>
-
       <!-- Popup Modal -->
-      <div id="popupModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+      <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="popupModal">
         <div class="bg-white text-blue-900 rounded-lg p-6 max-w-md shadow-lg relative">
-          <button onclick="closePopup()"
-            class="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-xl">&times;</button>
-          <h4 id="popupTitle" class="text-xl font-semibold mb-2"></h4>
-          <div id="popupContent" class="text-sm text-gray-700 leading-relaxed text-left"></div>
+          <button class="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-xl"
+            onclick="closePopup()">×</button>
+          <h4 class="text-xl font-semibold mb-2" id="popupTitle"></h4>
+          <div class="text-sm text-gray-700 leading-relaxed text-left" id="popupContent"></div>
         </div>
       </div>
-
       <div class="mt-10 text-sm text-blue-100">
-        <p>📧 <a href="mailto:ar.techconsulting.in@gmail.com"
-            class="underline hover:text-gray-300">ar.techconsulting.in@gmail.com</a></p>
+        <p>📧 <a class="underline hover:text-gray-300"
+            href="mailto:ar.techconsulting.in@gmail.com">ar.techconsulting.in@gmail.com</a></p>
         <p class="mt-2">Remote-first model | Flexible hours | Global clients</p>
       </div>
-
       <div class="flex justify-center space-x-6 mt-8">
-        <a href="https://twitter.com/rariyanshtech" target="_blank"><img
-            src="https://cdn-icons-png.flaticon.com/512/145/145812.png" class="w-6 h-6 hover:scale-110 transition"
-            alt="Twitter" /></a>
-        <a href="https://www.linkedin.com/company/r-ariyansh-technolgies/" target="_blank"><img
-            src="https://cdn-icons-png.flaticon.com/512/145/145807.png" class="w-6 h-6 hover:scale-110 transition"
-            alt="LinkedIn" /></a>
-        <a href="https://www.facebook.com/rariyanshtech" target="_blank"><img
-            src="https://cdn-icons-png.flaticon.com/512/145/145802.png" class="w-6 h-6 hover:scale-110 transition"
-            alt="Facebook" /></a>
-        <a href="https://www.youtube.com/@rariyanshtech" target="_blank"><img
-            src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" class="w-6 h-6 hover:scale-110 transition"
-            alt="YouTube" /></a>
+        <a href="https://twitter.com/rariyanshtech" target="_blank"><img alt="Twitter"
+            class="w-6 h-6 hover:scale-110 transition"
+            src="https://cdn-icons-png.flaticon.com/512/145/145812.png" /></a>
+        <a href="https://www.linkedin.com/company/r-ariyansh-technolgies/" target="_blank"><img alt="LinkedIn"
+            class="w-6 h-6 hover:scale-110 transition"
+            src="https://cdn-icons-png.flaticon.com/512/145/145807.png" /></a>
+        <a href="https://www.facebook.com/rariyanshtech" target="_blank"><img alt="Facebook"
+            class="w-6 h-6 hover:scale-110 transition"
+            src="https://cdn-icons-png.flaticon.com/512/145/145802.png" /></a>
+        <a href="https://www.youtube.com/@rariyanshtech" target="_blank"><img alt="YouTube"
+            class="w-6 h-6 hover:scale-110 transition"
+            src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" /></a>
       </div>
     </div>
   </section>
-
   <!-- Footer -->
   <footer class="bg-gray-900 text-gray-400 text-sm py-6">
     <div
@@ -226,10 +237,9 @@
         <span>Terms of Use</span>
         <span>About Ads</span>
       </div>
-      <p class="text-gray-500">&copy; R AriYansh 2025</p>
+      <p class="text-gray-500">© R AriYansh 2025</p>
     </div>
   </footer>
-
   <!-- JS -->
   <script>
     function showPopup(title, content) {
@@ -256,7 +266,6 @@
       if (e.key === 'Escape') closePopup();
     });
   </script>
-
 </body>
 
 </html>
