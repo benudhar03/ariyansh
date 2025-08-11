@@ -1,21 +1,38 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
   <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>R AriYansh Technologies Pvt Ltd</title>
-  <meta
-    content="R AriYansh Technologies offers IT Consulting, Development, DevOps, Data Engineering, and Scalable Cloud Solutions."
-    name="description" />
-  <meta content="IT Consulting, Cloud, DevOps, Data Engineering, Software Development, India, R AriYansh"
-    name="keywords" />
-  <meta content="R AriYansh Technologies Pvt Ltd" name="author" />
-  <link href="https://cdn-icons-png.flaticon.com/512/732/732221.png" rel="icon" />
+  <meta name="description"
+    content="R AriYansh Technologies offers IT Consulting, Development, DevOps, Data Engineering, and Scalable Cloud Solutions." />
+  <meta name="keywords"
+    content="IT Consulting, Cloud, DevOps, Data Engineering, Software Development, India, R AriYansh" />
+  <meta name="author" content="R AriYansh Technologies Pvt Ltd" />
+
+  <!-- Favicons / Icons -->
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/732/732221.png" />
+
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Animate.css for quick animations -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
+    :root {
+      --brand-1: #0f172a;
+      /* slate-900 */
+      --brand-2: #0ea5e9;
+      /* sky-500 */
+      --accent: #7c3aed;
+      /* purple-600 */
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -25,14 +42,59 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      min-height: 70vh;
+    }
+
+    /* subtle glass card */
+    .glass {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* focus outline for accessibility */
+    a:focus,
+    button:focus,
+    input:focus,
+    textarea:focus {
+      outline: 3px solid rgba(99, 102, 241, 0.25);
+      outline-offset: 2px;
+    }
+
+    /* scroll indicator */
+    .scroll-indicator {
+      animation: bob 2s infinite;
+    }
+
+    @keyframes bob {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(6px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* small screen tweaks */
+    @media (max-width: 640px) {
+      .hero-title {
+        font-size: 1.6rem;
+      }
     }
   </style>
+
   <script>
+    // Tailwind config for extended fonts (optional)
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif']
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif']
           }
         }
       }
@@ -40,246 +102,551 @@
   </script>
 </head>
 
-<body class="text-gray-800 font-sans">
+<body class="antialiased text-slate-800 bg-white">
+
   <!-- Header -->
-  <header class="bg-blue-900 text-white shadow-md sticky top-0 z-50 w-full">
-    <div class="w-full py-4 flex justify-between items-center">
-      <a href="#top" class="flex items-center gap-3 group focus:outline-none pl-4">
-        <img src="R.png" alt="Logo" class="h-12 w-12 object-contain transition-transform group-hover:scale-105" />
-        <div class="leading-tight">
-          <h1 class="text-2xl font-bold group-hover:text-purple-100">R AriYansh Technologies</h1>
-          <p class="text-sm text-purple-200 group-hover:text-white">Empower at Scale with Technology</p>
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Brand -->
+        <div class="flex items-center gap-3">
+          <a href="#top" class="flex items-center gap-3">
+            <img src="R.png" alt="R AriYansh logo" class="h-10 w-10 object-contain rounded" />
+            <div class="leading-tight">
+              <div class="text-lg font-bold text-slate-900">R AriYansh Technologies</div>
+              <div class="text-xs text-slate-500">Empower at Scale</div>
+            </div>
+          </a>
         </div>
-      </a>
-      <button id="menuBtn" class="md:hidden text-white focus:outline-none pr-4">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-      <nav id="menu"
-        class="hidden absolute top-16 left-0 w-full bg-blue-900 flex-col text-center space-y-2 py-4 text-sm font-medium md:static md:flex md:flex-row md:space-y-0 md:space-x-6 md:w-auto md:py-0 pr-4">
-        <a href="#about" class="hover:underline">About</a>
-        <a href="#services" class="hover:underline">Services</a>
-        <a href="#offerings" class="hover:underline">Offerings</a>
-        <a href="#contact" class="hover:underline">Contact</a>
-      </nav>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-700" aria-label="Main navigation">
+          <a href="#about" class="hover:text-slate-900 transition">About</a>
+          <a href="#services" class="hover:text-slate-900 transition">Services</a>
+          <a href="#offerings" class="hover:text-slate-900 transition">Offerings</a>
+          <a href="#contact" class="hover:text-slate-900 transition">Contact</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+          <a href="#contact"
+            class="hidden sm:inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-sm transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M2 3.993C2 3.444 2.447 3 2.998 3H21.002C21.553 3 22 3.444 22 3.993V20.01c0 .548-.447 .995-.998 .995H2.998A.997.997 0 0 1 2 20.01V3.993zM7.5 8.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm0 6a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
+            </svg>
+            Contact Us
+          </a>
+
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" aria-expanded="false"
+            class="md:hidden p-2 rounded-md hover:bg-slate-100 transition" aria-label="Open menu">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-700" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
-    <script>
-      document.getElementById('menuBtn').addEventListener('click', function () {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('hidden');
-      });
-    </script>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-100 bg-white">
+      <div class="px-4 pt-4 pb-6 space-y-2">
+        <a href="#about" class="block py-2 text-slate-700 rounded hover:bg-slate-50 px-2">About</a>
+        <a href="#services" class="block py-2 text-slate-700 rounded hover:bg-slate-50 px-2">Services</a>
+        <a href="#offerings" class="block py-2 text-slate-700 rounded hover:bg-slate-50 px-2">Offerings</a>
+        <a href="#contact" class="block py-2 text-slate-700 rounded hover:bg-slate-50 px-2">Contact</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-hero relative h-[90vh] flex items-center justify-center text-white text-center">
-    <div class="absolute inset-0 bg-black opacity-60"></div>
-    <div class="relative z-10 max-w-3xl animate__animated animate__zoomIn">
-      <h2 class="text-4xl font-bold mb-6 leading-snug text-center">
-        Powering Progress Through Technology — Shaping Tomorrow with Scalable Innovation and Endless Possibilities.
-      </h2>
-      <p class="text-lg text-gray-200">Empowering businesses with cutting-edge technology, smart engineering, and
-        scalable digital solutions.</p>
-      <a class="mt-8 inline-block bg-white text-blue-900 font-semibold px-6 py-3 rounded-full shadow hover:bg-gray-100 transition"
-        href="#contact">Contact
-        Us</a>
-    </div>
-  </section>
-  <!-- About -->
-  <section class="py-20 bg-white" id="about">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-6 text-center">About Us</h3>
-      <p class="text-lg text-gray-700 text-center max-w-4xl mx-auto">
-        R AriYansh Technologies Pvt Ltd is a growing IT Consulting and Services company committed to delivering
-        high-quality technology solutions tailored to client needs. We offer development support, project consulting,
-        and flexible engagement models that help businesses scale quickly and efficiently.
-      </p>
-      <p class="text-center text-sm mt-4 text-gray-600">Based in Bangalore, India | 11–50 employees | Privately held</p>
-    </div>
-  </section>
-  <!-- Services -->
-  <section class="py-20 bg-gray-100" id="services">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-12 text-center">Our Services</h3>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">Backend &amp; Full Stack Development</h4>
-          <p>Robust, scalable applications built with modern frameworks and cloud-ready architecture.</p>
+  <!-- HERO -->
+  <main id="top" class="overflow-hidden">
+    <section class="bg-hero relative flex items-center">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div data-aos="fade-up">
+            <h1 class="text-white hero-title font-extrabold tracking-tight leading-tight text-4xl lg:text-5xl">
+              Powering Progress Through Technology — Shaping Tomorrow with Scalable Innovation.
+            </h1>
+            <p class="mt-6 text-slate-200 max-w-xl text-lg">We help startups and enterprises build resilient, scalable
+              platforms using modern engineering, cloud-first architecture, and data-driven automation.</p>
+            <div class="mt-8 flex gap-4 items-center flex-wrap">
+              <a href="#contact"
+                class="inline-flex items-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-full shadow hover:shadow-lg transition">
+                Get in touch
+              </a>
+              <a href="#offerings"
+                class="inline-flex items-center gap-2 text-white border border-white/20 px-4 py-2 rounded-full hover:bg-white/5 transition">Our
+                Offerings</a>
+            </div>
+
+            <div class="mt-8 flex items-center gap-6 text-sm text-slate-200">
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                  fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 5a2 2 0 012-2h6a2 2 0 012 2v1h3a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V5z" />
+                  <path d="M8 9h4v2H8V9z" />
+                </svg> Bangalore, India</div>
+              <div class="flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                  fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 5a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2h-5l-4 3v-3H4a2 2 0 01-2-2V5z" />
+                </svg> Remote-first</div>
+            </div>
+          </div>
+
+          <div class="hidden lg:block" data-aos="fade-left">
+            <!-- Feature panel / mockup area -->
+            <div class="p-8 rounded-2xl glass shadow-lg">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-white font-semibold">Trusted by teams across</h3>
+                  <p class="text-slate-200 text-sm mt-1">FinTech · SaaS · Healthcare · Retail</p>
+                </div>
+                <div class="text-slate-200 text-sm">30–50 employees</div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-2 gap-4">
+                <div class="bg-white/5 p-4 rounded-lg">
+                  <div class="text-white font-semibold">Cloud-Native</div>
+                  <div class="text-slate-200 text-xs mt-1">AWS, GCP, Azure</div>
+                </div>
+                <div class="bg-white/5 p-4 rounded-lg">
+                  <div class="text-white font-semibold">Automation</div>
+                  <div class="text-slate-200 text-xs mt-1">CI/CD · IaC</div>
+                </div>
+                <div class="bg-white/5 p-4 rounded-lg">
+                  <div class="text-white font-semibold">Data</div>
+                  <div class="text-slate-200 text-xs mt-1">Streamlined ETL and high-performance data pipelines</div>
+                </div>
+                <div class="bg-white/5 p-4 rounded-lg">
+                  <div class="text-white font-semibold">Support</div>
+                  <div class="text-slate-200 text-xs mt-1">Monitoring · SRE</div>
+                </div>
+              </div>
+
+              <div class="mt-6 bg-white/5 p-4 rounded-lg text-slate-200 text-sm">
+                <strong>Case:</strong> Accelerated onboarding for a fintech startup — reduced cloud costs by 30% and
+                improved release cadence.
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">AWS Cloud &amp; DevOps</h4>
-          <p>CI/CD pipelines, Kubernetes, and secure infrastructure built on AWS and GCP.</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl shadow hover:shadow-xl hover:scale-[1.02] transition">
-          <h4 class="text-xl font-bold mb-2">Data Engineering &amp; Automation</h4>
-          <p>Analytics, pipeline optimization, and smart automation for performance and insights.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Offerings -->
-  <section class="py-20 bg-white" id="offerings">
-    <div class="max-w-7xl mx-auto px-6">
-      <h3 class="text-3xl font-semibold mb-10 text-center">Our Offerings</h3>
-      <p class="text-lg text-center text-gray-600 max-w-3xl mx-auto mb-10">
-        Helping startups, enterprises, and scale-ups achieve digital transformation with cutting-edge technology.
-        We specialize in delivering solutions across <strong>FinTech, Healthcare, Retail, SaaS</strong>, and
-        <strong>Logistics</strong> domains.
-      </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">IT Consulting &amp; Agile Development</h4>
-          <p>Strategic guidance and agile development tailored to your product vision, helping you launch faster and
-            smarter.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Full Stack Product Engineering</h4>
-          <p>From intuitive frontends to robust backends — we develop scalable platforms across the full lifecycle.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Cloud &amp; DevOps Solutions</h4>
-          <p>Modern infrastructure with AWS, GCP &amp; Azure, CI/CD automation, containerization, and performance
-            monitoring.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Intelligent Automation</h4>
-          <p>Automate operations using scripts, workflow engines, and low-code tools to boost business productivity.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Data Engineering &amp; Analytics</h4>
-          <p>Design and deploy modern ETL pipelines, data lakes, and real-time dashboards for actionable insights.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Mobile App Development</h4>
-          <p>Custom mobile solutions for Android and cross-platform apps built for performance and seamless UX.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">UI/UX &amp; Frontend Design</h4>
-          <p>Clean, responsive designs that focus on usability and user satisfaction across devices.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Product Prototyping &amp; MVPs</h4>
-          <p>Validate your ideas quickly with lean prototypes and MVP development for faster market feedback.</p>
-        </div>
-        <div class="bg-gray-100 rounded-lg p-6 shadow hover:shadow-lg hover:scale-[1.02] transition">
-          <h4 class="font-bold mb-2">Dedicated Tech Support</h4>
-          <p>Ongoing monitoring, issue resolution, and scaling assistance to ensure business continuity.</p>
+
+        <!-- Scroll hint -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-center z-20">
+          <a href="#about" class="flex flex-col items-center gap-2 text-slate-200 hover:text-white transition">
+            <svg class="scroll-indicator" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor">
+              <path d="M12 5v14M5 12l7 7 7-7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <span class="text-xs">Scroll to explore</span>
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- Contact -->
-  <section class="py-20 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white" id="contact">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h3 class="text-4xl font-bold mb-4">Let’s Connect</h3>
-      <p class="text-lg mb-10">Explore who we are, what we do, and how we can collaborate for innovation and growth.</p>
-      <!-- Links -->
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-4xl mx-auto mt-10 text-sm text-blue-100 text-center">
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('Get in touch', `&lt;p&gt;📞 &lt;strong&gt;Contact our business team&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;📧 &lt;strong&gt;Email:&lt;/strong&gt; &lt;a href='ariyansh@r-ariyansh.com' class='underline text-blue-700 hover:text-blue-900'&gt;ariyansh@r-ariyansh.com&lt;/a&gt;&lt;/p&gt;&lt;p&gt;📱 &lt;strong&gt;Phone:&lt;/strong&gt; +91-9938636246&lt;/p&gt;&lt;p class='mt-2'&gt;Have a project or collaboration idea? Let’s talk.&lt;/p&gt;`)">
-          Get in touch</div>
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('Explore careers', `&lt;strong&gt;🚀 We’re hiring!&lt;/strong&gt;&lt;br&gt;&lt;br&gt;Current openings:&lt;ul style='padding-left: 1rem; list-style-type: disc;'&gt;&lt;li&gt;Java Backend Developer (AWS, Kafka)&lt;/li&gt;&lt;li&gt;Java Full Stack Developer (Angular/React)&lt;/li&gt;&lt;li&gt;Python Backend Developer&lt;/li&gt;&lt;li&gt;Data Engineer (Azure, AWS, GCP)&lt;/li&gt;&lt;li&gt;DevOps Engineer&lt;/li&gt;&lt;li&gt;QA Automation Engineer&lt;/li&gt;&lt;/ul&gt;`)">
-          Explore careers</div>
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('View locations', `&lt;p&gt;📍 Our Locations&lt;/p&gt;&lt;p&gt;Headquartered in Bangalore, India.&lt;br&gt;We operate with a remote-first model across the globe.&lt;/p&gt;`)">
-          View locations</div>
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('Learn about us', `&lt;p&gt;💡 Learn About Us&lt;/p&gt;&lt;p&gt;Discover our journey, mission, and values that drive our innovation and client success.&lt;/p&gt;`)">
-          Learn about us</div>
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('Who we are', `&lt;p&gt;🌐 Who We Are&lt;/p&gt;&lt;p&gt;R AriYansh Technologies is a fast-growing IT services firm. We believe in empowering teams, enabling agility, and driving scalable digital transformation.&lt;/p&gt;`)">
-          Who we are</div>
-        <div class="hover:underline cursor-pointer inline-block"
-          onclick="showPopup('What we do', `&lt;p&gt;🛠️ What We Do&lt;/p&gt;&lt;p&gt;We deliver scalable tech solutions through expert consulting and development support. Our services span backend and full-stack development, cloud consulting, data engineering, and automation — tailored to your business needs. With flexible engagement models and industry-proven talent, we prioritize client success and long-term partnerships.&lt;/p&gt;`)">
-          What we do</div>
-      </div>
-      <!-- Popup Modal -->
-      <div class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50" id="popupModal">
-        <div class="bg-white text-blue-900 rounded-lg p-6 max-w-md shadow-lg relative">
-          <button class="absolute top-2 right-3 text-gray-500 hover:text-gray-700 text-xl"
-            onclick="closePopup()">×</button>
-          <h4 class="text-xl font-semibold mb-2" id="popupTitle"></h4>
-          <div class="text-sm text-gray-700 leading-relaxed text-left" id="popupContent"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+          <div class="lg:col-span-2" data-aos="fade-right">
+            <h2 class="text-3xl font-bold text-slate-900">About R AriYansh</h2>
+            <p class="mt-4 text-slate-600 text-lg max-w-2xl">We help organisations build product-led technology
+              platforms, reduce operational complexity, and deliver measurable outcomes. Our core strengths lie in
+              Backend & Full-Stack development, Cloud & DevOps, and Data Engineering.</p>
+            <ul class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3 text-slate-700">
+              <li class="flex items-start gap-3"><svg class="h-5 w-5 text-sky-500 mt-1"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M16.707 5.293a1 1 0 010 1.414L9 14.414l-3.707-3.707a1 1 0 10-1.414 1.414l4.414 4.414a1 1 0 001.414 0l8.414-8.414a1 1 0 00-1.414-1.414z" />
+                </svg> Flexible engagement models</li>
+              <li class="flex items-start gap-3"><svg class="h-5 w-5 text-sky-500 mt-1"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M16.707 5.293a1 1 0 010 1.414L9 14.414l-3.707-3.707a1 1 0 10-1.414 1.414l4.414 4.414a1 1 0 001.414 0l8.414-8.414a1 1 0 00-1.414-1.414z" />
+                </svg> Industry experience across FinTech & SaaS</li>
+              <li class="flex items-start gap-3"><svg class="h-5 w-5 text-sky-500 mt-1"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M16.707 5.293a1 1 0 010 1.414L9 14.414l-3.707-3.707a1 1 0 10-1.414 1.414l4.414 4.414a1 1 0 001.414 0l8.414-8.414a1 1 0 00-1.414-1.414z" />
+                </svg> Remote-first & global delivery</li>
+              <li class="flex items-start gap-3"><svg class="h-5 w-5 text-sky-500 mt-1"
+                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M16.707 5.293a1 1 0 010 1.414L9 14.414l-3.707-3.707a1 1 0 10-1.414 1.414l4.414 4.414a1 1 0 001.414 0l8.414-8.414a1 1 0 00-1.414-1.414z" />
+                </svg> Dedicated support & SRE services</li>
+            </ul>
+            <div class="mt-8 flex gap-4">
+              <a href="#contact"
+                class="inline-flex items-center gap-2 bg-sky-500 text-white px-4 py-2 rounded-md shadow hover:bg-sky-600 transition">
+                Talk to Sales
+              </a>
+              <a href="#offerings"
+                class="inline-flex items-center gap-2 border border-slate-200 px-4 py-2 rounded-md hover:bg-slate-50 transition">
+                View Offerings
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-xl shadow-sm" data-aos="fade-left">
+            <h3 class="font-semibold text-slate-900">At a glance</h3>
+            <dl class="mt-4 grid grid-cols-2 gap-4 text-sm text-slate-700">
+              <div>
+                <dt class="text-xs text-slate-500">Location</dt>
+                <dd>Bangalore, India</dd>
+              </div>
+              <div>
+                <dt class="text-xs text-slate-500">Team size</dt>
+                <dd>11–50</dd>
+              </div>
+              <div>
+                <dt class="text-xs text-slate-500">Engagement</dt>
+                <dd>Project & Staff Augmentation</dd>
+              </div>
+              <div>
+                <dt class="text-xs text-slate-500">Industries</dt>
+                <dd>FinTech · SaaS · Health</dd>
+              </div>
+            </dl>
+          </div>
         </div>
       </div>
-      <div class="mt-10 text-sm text-blue-100">
-        <p>📧 <a class="underline hover:text-gray-300"
-            href="mailto:ariyansh@r-ariyansh.com">ariyansh@r-ariyansh.com</a></p>
-        <p class="mt-2">Remote-first model | Flexible hours | Global clients</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-16 bg-slate-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h3 class="text-3xl font-bold">Our Services</h3>
+          <p class="mt-3 text-slate-600 max-w-2xl mx-auto">Modern engineering services that help you build, deploy and
+            operate resilient systems.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="100">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-sky-50 text-sky-600">
+                <!-- backend icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M20 13V7a2 2 0 00-2-2H6a2 2 0 00-2 2v6m16 0v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Backend & Full Stack Development</h4>
+                <p class="text-sm mt-1 text-slate-600">Robust, scalable applications built with modern frameworks and
+                  cloud-ready architecture.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Languages: Java, Python, Node.js</div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="200">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-emerald-50 text-emerald-600">
+                <!-- cloud icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 15a4 4 0 014-4h1a4 4 0 100-8 4 4 0 014 4h1a4 4 0 110 8H7a4 4 0 01-4-4z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Cloud & DevOps</h4>
+                <p class="text-sm mt-1 text-slate-600">CI/CD pipelines, Kubernetes, infrastructure as code, and secure
+                  cloud architecture.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">AWS, GCP, Azure · Terraform · Docker · K8s</div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="fade-up" data-aos-delay="300">
+            <div class="flex items-center gap-4">
+              <div class="p-3 rounded-lg bg-violet-50 text-violet-600">
+                <!-- data icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    d="M2 11a1 1 0 011-1h2v4H3a1 1 0 01-1-1v-2zM7 3a1 1 0 011-1h2v6H8a1 1 0 01-1-1V3zM12 7a1 1 0 011-1h2v10h-2a1 1 0 01-1-1V7z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Data Engineering & Automation</h4>
+                <p class="text-sm mt-1 text-slate-600">ETL pipelines, data lakes, and real-time analytics to drive
+                  insights.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Airflow · Spark · Snowflake</div>
+          </div>
+        </div>
       </div>
-      <div class="flex justify-center space-x-6 mt-8">
-        <a href="https://twitter.com/rariyanshtech" target="_blank"><img alt="Twitter"
-            class="w-6 h-6 hover:scale-110 transition"
-            src="https://cdn-icons-png.flaticon.com/512/145/145812.png" /></a>
-        <a href="https://www.linkedin.com/company/r-ariyansh-technolgies/" target="_blank"><img alt="LinkedIn"
-            class="w-6 h-6 hover:scale-110 transition"
-            src="https://cdn-icons-png.flaticon.com/512/145/145807.png" /></a>
-        <a href="https://www.facebook.com/rariyanshtech" target="_blank"><img alt="Facebook"
-            class="w-6 h-6 hover:scale-110 transition"
-            src="https://cdn-icons-png.flaticon.com/512/145/145802.png" /></a>
-        <a href="https://www.youtube.com/@rariyanshtech" target="_blank"><img alt="YouTube"
-            class="w-6 h-6 hover:scale-110 transition"
-            src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" /></a>
+    </section>
+
+    <!-- OFFERINGS -->
+    <section id="offerings" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12" data-aos="fade-up">
+          <h3 class="text-3xl font-bold">Offerings & Solutions</h3>
+          <p class="mt-3 text-slate-600 max-w-2xl mx-auto">End-to-end services tailored for product teams and
+            enterprises.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Offer card -->
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-sky-50 text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                  fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M13 7H7v6h6V7z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">IT Consulting & Agile Delivery</h4>
+                <p class="text-sm mt-1 text-slate-600">Product roadmaps, architecture reviews and lean delivery to
+                  accelerate time-to-market.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Workshops · Architecture Reviews · Roadmaps</div>
+          </div>
+
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in" data-aos-delay="80">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-emerald-50 text-emerald-600"><svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8c-1.657 0-3 1.567-3 3.5S10.343 15 12 15s3-1.567 3-3.5S13.657 8 12 8z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Full-Stack Product Engineering</h4>
+                <p class="text-sm mt-1 text-slate-600">From prototype to production: frontend, backend, & platform
+                  engineering.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">React · Angular · Node · Java</div>
+          </div>
+
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in" data-aos-delay="160">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-violet-50 text-violet-600"><svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2 11a1 1 0 011-1h2v4H3a1 1 0 01-1-1v-2z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Cloud & DevOps Solutions</h4>
+                <p class="text-sm mt-1 text-slate-600">Infrastructure design, IaC, cost optimisation and secure
+                  deployments.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Terraform · Docker · AWS</div>
+          </div>
+
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-sky-50 text-sky-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6"
+                  fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 3h12v2H4V3zM4 7h12v2H4V7zM4 11h12v2H4v-2z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Intelligent Automation</h4>
+                <p class="text-sm mt-1 text-slate-600">Automate manual workflows and reduce operational overhead with
+                  smart automation.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">RPA · Workflows · Low-code</div>
+          </div>
+
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in" data-aos-delay="80">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-emerald-50 text-emerald-600"><svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M3 3h14v4H3V3zM3 9h14v8H3V9z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">Data Engineering & Analytics</h4>
+                <p class="text-sm mt-1 text-slate-600">Modern ETL, data lakes and dashboards for operational insights.
+                </p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Airflow · Spark · Snowflake</div>
+          </div>
+
+          <div
+            class="p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-lg transition transform hover:-translate-y-1"
+            data-aos="zoom-in" data-aos-delay="160">
+            <div class="flex items-start gap-4">
+              <div class="p-3 rounded-lg bg-violet-50 text-violet-600"><svg xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 3h12v2H4V3zM4 7h12v10H4V7z" />
+                </svg></div>
+              <div>
+                <h4 class="font-semibold text-slate-900">MVP & Prototyping</h4>
+                <p class="text-sm mt-1 text-slate-600">Validate ideas quickly with fast prototypes to gather market
+                  feedback.</p>
+              </div>
+            </div>
+            <div class="mt-4 text-sm text-slate-500">Prototypes · Validation · Launch</div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 text-sm py-6">
-    <div
-      class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
-      <span>English (India)</span>
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-center md:text-left">
-        <span>Your Privacy Choices</span>
-        <span>Contact</span>
-        <span>Privacy</span>
-        <span>Terms of Use</span>
-        <span>About Ads</span>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-slate-900 to-sky-800 text-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8" data-aos="fade-up">
+          <h3 class="text-3xl font-bold">Let's Connect</h3>
+          <p class="mt-2 text-slate-200">Reach out to discuss a project, staffing or partnership.</p>
+        </div>
+
+        <div class="bg-white/5 p-6 rounded-xl shadow-sm" data-aos="fade-up" data-aos-delay="80">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="text-lg font-semibold">Contact details</h4>
+              <p class="mt-3 text-sm text-slate-200">For business inquiries, email us and we'll get back within 24–48
+                hours.</p>
+
+              <div class="mt-4 text-sm text-slate-200 space-y-2">
+                <div><strong>Email:</strong> <a class="underline"
+                    href="mailto:ariyansh@r-ariyansh.com">ariyansh@r-ariyansh.com</a></div>
+                <div><strong>Phone:</strong> +91-9938636246</div>
+                <div><strong>Location:</strong> Bangalore, India (Remote-first)</div>
+              </div>
+
+              <div class="mt-6 flex items-center gap-3">
+                <a target="_blank" rel="noopener" href="https://www.linkedin.com/company/r-ariyansh-technolgies/"
+                  aria-label="LinkedIn" class="text-white hover:opacity-90"><img class="h-6 w-6"
+                    src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" /></a>
+                <a target="_blank" rel="noopener" href="https://twitter.com/rariyanshtech" aria-label="Twitter"
+                  class="text-white hover:opacity-90"><img class="h-6 w-6"
+                    src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" /></a>
+                <a target="_blank" rel="noopener" href="https://www.youtube.com/@rariyanshtech" aria-label="YouTube"
+                  class="text-white hover:opacity-90"><img class="h-6 w-6"
+                    src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" /></a>
+              </div>
+            </div>
+
+            <div>
+              <!-- Simple contact form (mailto fallback) -->
+              <form id="contactForm" action="mailto:ariyansh@r-ariyansh.com" method="GET" class="space-y-3">
+                <div>
+                  <label class="text-sm block mb-1">Your name</label>
+                  <input name="name" required
+                    class="w-full rounded-md border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-200"
+                    placeholder="Jane Doe" />
+                </div>
+                <div>
+                  <label class="text-sm block mb-1">Email</label>
+                  <input name="email" type="email" required
+                    class="w-full rounded-md border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-200"
+                    placeholder="you@company.com" />
+                </div>
+                <div>
+                  <label class="text-sm block mb-1">Message</label>
+                  <textarea name="message" rows="4" required
+                    class="w-full rounded-md border border-white/20 bg-white/5 px-3 py-2 text-white placeholder-slate-200"
+                    placeholder="Tell us about your project..."></textarea>
+                </div>
+                <div class="pt-1">
+                  <button type="submit"
+                    class="inline-flex items-center gap-2 bg-white text-slate-900 px-4 py-2 rounded-md font-semibold shadow">Send
+                    Message</button>
+                  <span class="text-sm text-slate-200 ml-3">or <a href="mailto:ariyansh@r-ariyansh.com"
+                      class="underline">email us directly</a></span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <p class="text-gray-500">© R AriYansh 2025</p>
-    </div>
-  </footer>
-  <!-- JS -->
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-300 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="text-sm">&copy; R AriYansh 2025 · English (India)</div>
+          <div class="flex items-center gap-6 text-sm text-slate-400">
+            <a class="hover:text-white" href="#">Privacy</a>
+            <a class="hover:text-white" href="#">Terms</a>
+            <a class="hover:text-white" href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+
+  <!-- AOS & small JS for interactions -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    function showPopup(title, content) {
-      const modal = document.getElementById('popupModal');
-      document.getElementById('popupTitle').textContent = title;
-      document.getElementById('popupContent').innerHTML = content;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex', 'animate__animated', 'animate__fadeIn');
-    }
+    // Initialize animations
+    AOS.init({ duration: 800, once: true });
 
-    function closePopup() {
-      const modal = document.getElementById('popupModal');
-      modal.classList.remove('flex', 'animate__fadeIn');
-      modal.classList.add('hidden');
-    }
-
-    document.getElementById('popupModal').addEventListener('click', function (e) {
-      if (e.target === this) {
-        closePopup();
-      }
+    // Mobile menu toggle
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', function () {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden');
     });
 
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closePopup();
-      if (
-      e.key === "F12" || // DevTools
-      (e.ctrlKey && e.shiftKey && e.key === 'I') || // Ctrl+Shift+I
-      (e.ctrlKey && e.key === 'U') || // Ctrl+U
-      (e.ctrlKey && e.key === 'S') || // Ctrl+S
-      (e.ctrlKey && e.key === 'P') || // Ctrl+P
-      (e.ctrlKey && e.key === 'C') || // Ctrl+C
-      (e.ctrlKey && e.key === 'A') // Ctrl+A
-	  ) {
+    // Contact form: open mail client with prefilled content
+    const form = document.getElementById('contactForm');
+    form?.addEventListener('submit', function (e) {
       e.preventDefault();
-		}
+      const formData = new FormData(form);
+      const name = formData.get('name') || '';
+      const email = formData.get('email') || '';
+      const message = formData.get('message') || '';
+      const subject = encodeURIComponent('Website inquiry from ' + name);
+      const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = `mailto:ariyansh@r-ariyansh.com?subject=${subject}&body=${body}`;
     });
+
+    // Disable right-click
     document.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     });
+
+    // Disable certain keyboard shortcuts
+    document.addEventListener('keydown', function (e) {
+      const key = e.key.toLowerCase();
+
+      // Block F12
+      if (key === 'f12') {
+        e.preventDefault();
+      }
+
+      // Block Ctrl+Shift+I / Ctrl+Shift+J
+      if (e.ctrlKey && e.shiftKey && (key === 'i' || key === 'j')) {
+        e.preventDefault();
+      }
+
+      // Block Ctrl+U, Ctrl+S, Ctrl+C, Ctrl+A
+      if (e.ctrlKey && ['u', 's', 'c', 'a'].includes(key)) {
+        e.preventDefault();
+      }
+    });
   </script>
+
 </body>
 
 </html>
